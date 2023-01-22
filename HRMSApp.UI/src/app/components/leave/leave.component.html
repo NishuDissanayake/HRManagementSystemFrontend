@@ -1,0 +1,139 @@
+<div class="container mt-3">
+    <h1>Leave & Work from home</h1>
+    <div class="row">
+        <div class="col-3">
+            <mat-card style="width: 18rem;">
+                <div class="wrapper">
+                    <div class="card-body">
+                        <h3 class="card-title text-center cardtitle">Employee Leave & WFH Request</h3>
+                        <div class="leave-img"></div>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+        <div class="col-9">
+            <mat-card>
+                <div class="tablediv">
+                    <form>
+                        <table>
+                            <tr>
+                                <td>
+                                    <mat-form-field appearance="fill">
+                                        <mat-label>Date</mat-label>
+                                        <mat-date-range-input [rangePicker]="picker">
+                                            <input matStartDate placeholder="Start date">
+                                            <input matEndDate placeholder="End date">
+                                        </mat-date-range-input>
+                                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                        <mat-date-range-picker #picker></mat-date-range-picker>
+                                    </mat-form-field>
+                                </td>
+
+                                <td>
+                                    <mat-form-field appearance="fill">
+                                        <mat-label>Month</mat-label>
+                                        <mat-select>
+                                            <mat-option value="January">January</mat-option>
+                                            <mat-option value="February">February</mat-option>
+                                            <mat-option value="March">March</mat-option>
+                                            <mat-option value="April">April</mat-option>
+                                            <mat-option value="May">May</mat-option>
+                                            <mat-option value="June">June</mat-option>
+                                            <mat-option value="July">July</mat-option>
+                                            <mat-option value="Augest">Augest</mat-option>
+                                            <mat-option value="September">September</mat-option>
+                                            <mat-option value="October">October</mat-option>
+                                            <mat-option value="November">November</mat-option>
+                                            <mat-option value="December">December</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </td>
+
+                                <td>
+                                    <mat-form-field appearance="fill">
+                                        <mat-label>Type</mat-label>
+                                        <mat-select>
+                                            <mat-option value="Leave">Leave</mat-option>
+                                            <mat-option value="WFH">Work from home</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </td>
+
+                                <td>
+                                    <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+                                        <mat-label>Reason</mat-label>
+                                        <input matInput #input maxlength="10" placeholder="Ex. Nougat">
+                                        <mat-hint align="end">{{input.value.length}}/10</mat-hint>
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+                        </table>
+                        <button type="button" class="btn btn-primary button">Apply</button>
+                    </form>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <mat-card>
+                <div class="tablediv">
+                    <table class="table">
+                        <thead class="theadbak">
+                            <tr>
+                                <th scope="col">Type</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Days Off</th>
+                                <th scope="col">Start</th>
+                                <th scope="col">End</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                            <tr>
+                                <th scope="row">Annual</th>
+                                <td>Dummy description</td>
+                                <td>1 Days</td>
+                                <td>11/11/2022</td>
+                                <td>11/11/2022</td>
+                                <td>Submited</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Casual</th>
+                                <td>Dummy description</td>
+                                <td>1 Days</td>
+                                <td>11/11/2022</td>
+                                <td>11/11/2022</td>
+                                <td>Submited</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Exam</th>
+                                <td>Dummy description</td>
+                                <td>1 Days</td>
+                                <td>11/11/2022</td>
+                                <td>11/11/2022</td>
+                                <td>Submited</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Sick</th>
+                                <td>Dummy description</td>
+                                <td>1 Days</td>
+                                <td>11/11/2022</td>
+                                <td>11/11/2022</td>
+                                <td>Submited</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Other</th>
+                                <td>Dummy description</td>
+                                <td>1 Days</td>
+                                <td>11/11/2022</td>
+                                <td>11/11/2022</td>
+                                <td>Submited</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</div>

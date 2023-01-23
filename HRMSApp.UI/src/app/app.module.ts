@@ -26,6 +26,7 @@ import { HrdashboardComponent } from './components/hrdashboard/hrdashboard.compo
 import { LeaveManageComponent } from './components/leave-manage/leave-manage.component';
 import { EmployeeManageComponent } from './components/employee-manage/employee-manage.component';
 import { FormsModule } from '@angular/forms';
+import { PayrollComponent } from './components/payroll/payroll.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     HrdashboardComponent,
     LeaveManageComponent,
-    EmployeeManageComponent
+    EmployeeManageComponent,
+    PayrollComponent
   ],
   imports: [
     BrowserModule,

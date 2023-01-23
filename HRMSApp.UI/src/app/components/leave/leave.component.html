@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="container mt-3">
     <h1>Leave & Work from home</h1>
     <div class="row">
@@ -83,52 +84,18 @@
                             <tr>
                                 <th scope="col">Type</th>
                                 <th scope="col">Description</th>
-                                <th scope="col">Days Off</th>
-                                <th scope="col">Start</th>
-                                <th scope="col">End</th>
+                                <th scope="col">Request Date</th>
+                                <th scope="col">Month</th>
                                 <th scope="col">Status</th>
                             </tr>
                         </thead>
                         <tbody class="table-group-divider">
-                            <tr>
-                                <th scope="row">Annual</th>
-                                <td>Dummy description</td>
-                                <td>1 Days</td>
-                                <td>11/11/2022</td>
-                                <td>11/11/2022</td>
-                                <td>Submited</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Casual</th>
-                                <td>Dummy description</td>
-                                <td>1 Days</td>
-                                <td>11/11/2022</td>
-                                <td>11/11/2022</td>
-                                <td>Submited</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Exam</th>
-                                <td>Dummy description</td>
-                                <td>1 Days</td>
-                                <td>11/11/2022</td>
-                                <td>11/11/2022</td>
-                                <td>Submited</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Sick</th>
-                                <td>Dummy description</td>
-                                <td>1 Days</td>
-                                <td>11/11/2022</td>
-                                <td>11/11/2022</td>
-                                <td>Submited</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Other</th>
-                                <td>Dummy description</td>
-                                <td>1 Days</td>
-                                <td>11/11/2022</td>
-                                <td>11/11/2022</td>
-                                <td>Submited</td>
+                            <tr *ngFor="let leave of leaves">
+                                <th scope="row">{{leave.ReqType}}</th>
+                                <td>{{leave.Reason}}</td>
+                                <td>{{leave.RequestDate}}</td>
+                                <td>{{leave.Month}}</td>
+                                <td>{{leave.Status}}</td>
                             </tr>
                         </tbody>
                     </table>

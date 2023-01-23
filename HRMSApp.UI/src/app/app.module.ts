@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +22,10 @@ import { FooterComponent } from './components/common/footer/footer.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { NewsComponent } from './components/news/news.component';
 import { LoginComponent } from './components/login/login.component';
+import { HrdashboardComponent } from './components/hrdashboard/hrdashboard.component';
+import { LeaveManageComponent } from './components/leave-manage/leave-manage.component';
+import { EmployeeManageComponent } from './components/employee-manage/employee-manage.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,10 +36,14 @@ import { LoginComponent } from './components/login/login.component';
     FooterComponent,
     ProfileComponent,
     NewsComponent,
-    LoginComponent
+    LoginComponent,
+    HrdashboardComponent,
+    LeaveManageComponent,
+    EmployeeManageComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     MatCardModule,
     MatButtonModule,
@@ -46,7 +55,8 @@ import { LoginComponent } from './components/login/login.component';
     MatIconModule,
     BrowserAnimationsModule,
     MatNativeDateModule,
-    MatSelectModule
+    MatSelectModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

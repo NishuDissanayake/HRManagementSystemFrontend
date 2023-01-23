@@ -1,0 +1,214 @@
+<app-navbar></app-navbar>
+<div class="container mt-5">
+    <h1>Employee Management</h1>
+    <div class="row">
+        <div class="col-6 regform">
+            <h2>User Details</h2>
+
+            <div class="row">
+                <div class="col-6">
+                    <mat-form-field class="example-form-field">
+                        <mat-label>First Name</mat-label>
+                        <input matInput type="text">
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field class="example-form-field">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput type="text">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <mat-form-field class="example-form-field" appearance="fill">
+                        <mat-label>Date</mat-label>
+                        <mat-date-range-input [rangePicker]="picker">
+                            <input matStartDate placeholder="Start date">
+                            <input matEndDate placeholder="End date">
+                        </mat-date-range-input>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-date-range-picker #picker></mat-date-range-picker>
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field class="example-form-field">
+                        <mat-label>NIC No</mat-label>
+                        <input matInput type="text">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <mat-form-field class="example-form-field">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="text">
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field class="example-form-field">
+                        <mat-label>Contact No</mat-label>
+                        <input matInput type="text">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <mat-form-field class="example-form-field">
+                    <mat-label>Address</mat-label>
+                    <input matInput type="text">
+                </mat-form-field>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <mat-form-field class="example-form-field">
+                        <mat-label>Designation</mat-label>
+                        <input matInput type="text">
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field class="example-form-field">
+                        <mat-label>Basic Salary</mat-label>
+                        <input matInput type="text">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="example-container">
+                    <mat-form-field class="example-form-field" appearance="fill">
+                        <mat-label>Enter your password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <h2>Bank Details</h2>
+
+            <div class="row">
+                <div class="col-6">
+                    <mat-form-field class="example-form-field">
+                        <mat-label>First Name</mat-label>
+                        <input matInput type="text">
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field class="example-form-field">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput type="text">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <mat-form-field class="example-form-field">
+                        <mat-label>First Name</mat-label>
+                        <input matInput type="text">
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field class="example-form-field">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput type="text">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-primary button">Register</button>
+        </div>
+
+        <!-- employee update -->
+
+        <div class="col-6">
+            <h2>User Details</h2>
+
+            <div class="row">
+                <div class="col-6">
+                    <mat-form-field class="example-form-field">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="text">
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field class="example-form-field">
+                        <mat-label>Contact No</mat-label>
+                        <input matInput type="text">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <mat-form-field class="example-form-field">
+                        <mat-label>Designation</mat-label>
+                        <input matInput type="text">
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field class="example-form-field">
+                        <mat-label>Basic Salary</mat-label>
+                        <input matInput type="text">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-primary button">Update</button>
+
+            <h2>Bank Details</h2>
+            
+            <div class="row">
+                <div class="col-6">
+                    <mat-form-field class="example-form-field">
+                        <mat-label>First Name</mat-label>
+                        <input matInput type="text">
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field class="example-form-field">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput type="text">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <mat-form-field class="example-form-field">
+                        <mat-label>First Name</mat-label>
+                        <input matInput type="text">
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field class="example-form-field">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput type="text">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-primary button">Update</button>
+
+            <h2>Employee Delete</h2>
+
+            <div class="row">
+                <div class="col-6">
+                    <mat-form-field class="example-form-field">
+                        <mat-label>Employee ID</mat-label>
+                        <input matInput type="text">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-primary button">Delete</button>
+
+        </div>
+    </div>
+</div>

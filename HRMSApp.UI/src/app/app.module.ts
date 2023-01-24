@@ -27,6 +27,8 @@ import { LeaveManageComponent } from './components/leave-manage/leave-manage.com
 import { EmployeeManageComponent } from './components/employee-manage/employee-manage.component';
 import { FormsModule } from '@angular/forms';
 import { PayrollComponent } from './components/payroll/payroll.component';
+import { ProjectManageComponent } from './components/project-manage/project-manage.component';
+import { ResourceManageComponent } from './components/resource-manage/resource-manage.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { PayrollComponent } from './components/payroll/payroll.component';
     HrdashboardComponent,
     LeaveManageComponent,
     EmployeeManageComponent,
-    PayrollComponent
+    PayrollComponent,
+    ProjectManageComponent,
+    ResourceManageComponent
   ],
   imports: [
     BrowserModule,

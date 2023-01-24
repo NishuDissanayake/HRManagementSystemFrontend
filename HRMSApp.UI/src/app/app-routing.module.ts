@@ -8,6 +8,8 @@ import { LoginComponent } from './components/login/login.component';
 import { NewsComponent } from './components/news/news.component';
 import { PayrollComponent } from './components/payroll/payroll.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ProjectManageComponent } from './components/project-manage/project-manage.component';
+import { ResourceManageComponent } from './components/resource-manage/resource-manage.component';
 
 const routes: Routes = [
   {path:'', component: LeaveComponent},
@@ -17,9 +19,9 @@ const routes: Routes = [
   {path:'leavemanage', component: LeaveManageComponent},
   {path:'admin', component: HrdashboardComponent},
   {path:'employeemng', component: EmployeeManageComponent},
-  {path:'leave', component: LeaveComponent},
-  {path:'leaveManage', component: LeaveManageComponent},
   {path:'payroll', component: PayrollComponent},
+  {path:'projectmanage', component: ProjectManageComponent},
+  {path:'resourcemanage', component: ResourceManageComponent}
 
 ];
 

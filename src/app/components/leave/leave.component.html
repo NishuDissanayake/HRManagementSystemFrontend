@@ -14,64 +14,63 @@
         </div>
         <div class="col-9">
             <mat-card>
-                <div class="tablediv">
-                    <form>
-                        <table>
-                            <tr>
-                                <td>
-                                    <mat-form-field appearance="fill">
-                                        <mat-label>Date</mat-label>
-                                        <mat-date-range-input [rangePicker]="picker">
-                                            <input matStartDate placeholder="Start date">
-                                            <input matEndDate placeholder="End date">
-                                        </mat-date-range-input>
-                                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                                        <mat-date-range-picker #picker></mat-date-range-picker>
-                                    </mat-form-field>
-                                </td>
-
-                                <td>
-                                    <mat-form-field appearance="fill">
-                                        <mat-label>Month</mat-label>
-                                        <mat-select>
-                                            <mat-option value="January">January</mat-option>
-                                            <mat-option value="February">February</mat-option>
-                                            <mat-option value="March">March</mat-option>
-                                            <mat-option value="April">April</mat-option>
-                                            <mat-option value="May">May</mat-option>
-                                            <mat-option value="June">June</mat-option>
-                                            <mat-option value="July">July</mat-option>
-                                            <mat-option value="Augest">Augest</mat-option>
-                                            <mat-option value="September">September</mat-option>
-                                            <mat-option value="October">October</mat-option>
-                                            <mat-option value="November">November</mat-option>
-                                            <mat-option value="December">December</mat-option>
-                                        </mat-select>
-                                    </mat-form-field>
-                                </td>
-
-                                <td>
-                                    <mat-form-field appearance="fill">
-                                        <mat-label>Type</mat-label>
-                                        <mat-select>
-                                            <mat-option value="Leave">Leave</mat-option>
-                                            <mat-option value="WFH">Work from home</mat-option>
-                                        </mat-select>
-                                    </mat-form-field>
-                                </td>
-
-                                <td>
-                                    <mat-form-field hintLabel="Max 10 characters" appearance="fill">
-                                        <mat-label>Reason</mat-label>
-                                        <input matInput #input maxlength="10" placeholder="Ex. Nougat">
-                                        <mat-hint align="end">{{input.value.length}}/10</mat-hint>
-                                    </mat-form-field>
-                                </td>
-                            </tr>
-                        </table>
-                        <button type="button" class="btn btn-primary button">Apply</button>
-                    </form>
-                </div>
+                <form [formGroup]="form" #leave="ngForm" (ngSubmit)="Submit(leave.value)">
+                    <div class="tablediv">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="input-group">
+                                    <input class="form-control" placeholder="yyyy-mm-dd" name="RequestDate" ngModel [(ngModel)]="model"
+                                        ngbDatepicker #d="ngbDatepicker" formControlName="RequestDate"/>
+                                    <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                            class="bi bi-calendar-check" viewBox="0 0 16 16">
+                                            <path
+                                                d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                                            <path
+                                                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+    
+                            <div class="col-3">
+                                <select class="form-select input-group" name="Month" ngModel formControlName="Month">
+                                    <option selected>Month</option>
+                                    <option value="January">January</option>
+                                    <option value="February">February</option>
+                                    <option value="March">March</option>
+                                    <option value="April">April</option>
+                                    <option value="May">May</option>
+                                    <option value="June">June</option>
+                                    <option value="July">July</option>
+                                    <option value="Augest">Augest</option>
+                                    <option value="September">September</option>
+                                    <option value="October">October</option>
+                                    <option value="November">November</option>
+                                    <option value="December">December</option>
+                                </select>
+                            </div>
+    
+                            <div class="col-3">
+                                <select class="form-select input-group" name="ReqType" ngModel formControlName="ReqType">
+                                    <option selected>Resource Type</option>
+                                    <option value="Leave">Leave</option>
+                                    <option value="WFH">WFH</option>
+                                </select>
+                            </div>
+    
+                            <div class="col-3">
+                                <div class="input-group">
+                                    <input class="form-control" name="Reason" ngModel formControlName="Reason" placeholder="Reason" />
+                                    <input type="hidden" [value]="email" name="Email" ngModel formControlName="Email"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <button type="submit" style="margin: 13px;" class="btn btn-primary button">Apply</button>
+                        </div>
+                    </div>
+                </form>
             </mat-card>
         </div>
     </div>

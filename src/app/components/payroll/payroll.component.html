@@ -19,8 +19,6 @@
                 <table class="table">
                     <thead class="theadbak">
                         <tr>
-                            <th scope="col">Employee Name</th>
-                            <th scope="col">Designation</th>
                             <th scope="col">Month</th>
                             <th scope="col">Basic Salary</th>
                             <th scope="col">Deductions</th>
@@ -31,11 +29,9 @@
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
-                        <tr>
-                            <th scope="row">20275</th>
-                            <td>Nishani</td>
-                            <td>Papyrus</td>
-                            <td>Task 01</td>
+                        <tr *ngFor="let employee of empDetails">
+                            <td *ngFor="let month of employee.SalaryForMonth">{{month.Month}}</td>
+                            <td>{{employee.BasicSalary}}</td>
                             <td>3 months</td>
                             <td>11/11/2022</td>
                             <td>11/01/2023</td>

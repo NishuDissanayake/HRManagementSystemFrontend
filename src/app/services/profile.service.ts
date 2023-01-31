@@ -2,29 +2,22 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { environment } from 'src/environments/environment.development';
-import { Employee } from '../models/employee';
+import { Employee, EmployeeDetails, Hardware, Software } from '../models/employee';
+import { Project } from '../models/project';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
 
-  private controller = " "
-  constructor(private http : HttpClient) { }
+  private controller = "projects"
+  constructor(private http: HttpClient) { }
 
-  public getEmpByEmail(email = "") : Observable<Employee[]>{
-    return this.http.get<Employee[]>(`${environment.apiUrl}/${this.controller}/empbyemail?${email}`)
+  public getEmpByEmail(email = ""): Observable<Employee[]> {
+    return this.http.get<Employee[]>(`${environment.apiUrl}/employee/by-email?email=${email}`)
   }
 
-  public getSoftwareByEmail(email = "") : Observable<Employee>{
-    return this.http.get<Employee[]>(`${environment.apiUrl}/${this.controller}/empbyemail?${email}`)
+  public getProjectsByEmail(email = ""): Observable<Project[]> {
+    return this.http.get<Project[]>(`${environment.apiUrl}/${this.controller}/by-email?email=${email}`)
   }
-
-  public getHardwareByEmail(email = "") : Observable<Employee>{
-    return this.http.get<Employee[]>(`${environment.apiUrl}/${this.controller}/empbyemail?${email}`)
-  }
-
-  public getProjectsByEmail(email = "") : Observable<Employee>{
-    return this.http.get<Employee[]>(`${environment.apiUrl}/${this.controller}/empbyemail?${email}`)
-}
 }

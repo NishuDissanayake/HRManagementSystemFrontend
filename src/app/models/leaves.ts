@@ -1,10 +1,17 @@
 export class Leaves{
-    Status = "";
     _id = "";
-    EmployeeID?: number;
+    Status = "";
     ReqType = "";
     RequestDate = "";
     Month = "";
     Reason = "";
-    __v = "";
+    Email = "";
+}
+
+export class ApplyLeaves{
+    ReqType = "";
+    RequestDate = "";
+    Month = "";
+    Reason = "";
+    Email = "";
 }

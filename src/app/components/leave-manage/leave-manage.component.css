@@ -1,5 +1,5 @@
-.rowheight{
-    height: 20rem;
+.allleave{
+    padding-top: 1%;
 }
 
 h1 {
@@ -13,7 +13,7 @@ h1 {
     margin: 0.5rem;
 }
 
-.title-icon{
+.title-icon {
     height: 1.5rem;
 }
 
@@ -23,12 +23,21 @@ h1 {
     margin-top: 1rem;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
-    
+
 }
 
-.theadbak{
+.theadbak {
     background-color: #016670;
     border: white;
     color: white;
 }
 
+.my-custom-scrollbar {
+    position: relative;
+    height: 15rem;
+    overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+    display: block;
+}

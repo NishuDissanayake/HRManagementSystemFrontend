@@ -6,17 +6,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { LeaveComponent } from './components/leave/leave.component';
-import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
-import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatInputModule} from '@angular/material/input';
-import {MatIconModule} from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule } from '@angular/material/core';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 import { NavbarComponent } from './components/common/navbar/navbar.component';
 import { FooterComponent } from './components/common/footer/footer.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -29,6 +29,10 @@ import { FormsModule } from '@angular/forms';
 import { PayrollComponent } from './components/payroll/payroll.component';
 import { ProjectManageComponent } from './components/project-manage/project-manage.component';
 import { ResourceManageComponent } from './components/resource-manage/resource-manage.component';
+import { NgbDateAdapter, NgbDateParserFormatter, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CustomAdapter, CustomDateParserFormatter } from './models/custom-date-format';
+
 
 @NgModule({
   declarations: [
@@ -62,9 +66,12 @@ import { ResourceManageComponent } from './components/resource-manage/resource-m
     BrowserAnimationsModule,
     MatNativeDateModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    NgbModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{ provide: NgbDateAdapter, useClass: CustomAdapter },
+  { provide: NgbDateParserFormatter, useClass: CustomDateParserFormatter }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

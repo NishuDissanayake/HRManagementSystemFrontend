@@ -8,7 +8,7 @@ h2 {
     font-weight: bolder;
 }
 
-.example-form-field {
+.input-group {
     width: 100%;
     margin: 5px;
 }
@@ -42,4 +42,12 @@ input.example-right-align {
 .btn-primary:hover {
     background-color: #038490 !important;
     border-color: #016670 !important;
+}
+
+.button-del{
+    margin-bottom: 1rem;
+    width: 12rem;
+    background-color: #016670;
+    border-color: #016670;
+    color: white;
 }

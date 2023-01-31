@@ -3,6 +3,14 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Launch Edge (HRMFront)",
+      "request": "launch",
+      "type": "msedge",
+      "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}/HRMFront",
+      "trace": true
+    },
+    {
       "name": "ng serve",
       "type": "pwa-chrome",
       "request": "launch",

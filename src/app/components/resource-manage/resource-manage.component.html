@@ -10,22 +10,21 @@
                     <table class="table">
                         <thead class="theadbak">
                             <tr>
-                                <th scope="col">Project</th>
-                                <th scope="col">Duration</th>
-                                <th scope="col">Start Date</th>
-                                <th scope="col">End Date</th>
-                                <th scope="col">Manager</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Request Date</th>
+                                <th scope="col">Email</th>
                                 <th scope="col">Status</th>
                             </tr>
                         </thead>
                         <tbody class="table-group-divider">
-                            <!-- <tr *ngFor="let leave of leaves">
-                                <th scope="row">{{leave.ReqType}}</th>
-                                <td>{{leave.Reason}}</td>
-                                <td>{{leave.RequestDate}}</td>
-                                <td>{{leave.Month}}</td>
-                                <td>{{leave.Status}}</td>
-                            </tr> -->
+                            <tr *ngFor="let software of softwares">
+                                <th scope="row">{{software.ResourcesType}}</th>
+                                <td>{{software.Description}}</td>
+                                <td>{{software.IssuedDate}}</td>
+                                <td>{{software.Email}}</td>
+                                <td>{{software.Status}}</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -38,22 +37,21 @@
                     <table class="table">
                         <thead class="theadbak">
                             <tr>
-                                <th scope="col">Project</th>
-                                <th scope="col">Duration</th>
-                                <th scope="col">Start Date</th>
-                                <th scope="col">End Date</th>
-                                <th scope="col">Manager</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Request Date</th>
+                                <th scope="col">Email</th>
                                 <th scope="col">Status</th>
                             </tr>
                         </thead>
                         <tbody class="table-group-divider">
-                            <!-- <tr *ngFor="let leave of leaves">
-                                <th scope="row">{{leave.ReqType}}</th>
-                                <td>{{leave.Reason}}</td>
-                                <td>{{leave.RequestDate}}</td>
-                                <td>{{leave.Month}}</td>
-                                <td>{{leave.Status}}</td>
-                            </tr> -->
+                            <tr *ngFor="let hardware of hardwares">
+                                <th scope="row">{{hardware.ResourcesType}}</th>
+                                <td>{{hardware.Description}}</td>
+                                <td>{{hardware.IssuedDate}}</td>
+                                <td>{{hardware.Email}}</td>
+                                <td>{{hardware.Status}}</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -72,88 +70,82 @@
                                 <th scope="col">Type</th>
                                 <th scope="col">Description</th>
                                 <th scope="col">Request Date</th>
-                                <th scope="col">Month</th>
+                                <th scope="col">Email</th>
                                 <th scope="col">Status</th>
                             </tr>
                         </thead>
                         <tbody class="table-group-divider">
-                            <!-- <tr *ngFor="let leave of leaves">
-                                <th scope="row">{{leave.ReqType}}</th>
-                                <td>{{leave.Reason}}</td>
-                                <td>{{leave.RequestDate}}</td>
-                                <td>{{leave.Month}}</td>
-                                <td>{{leave.Status}}</td>
-                            </tr> -->
+                            <tr *ngFor="let resource of resources">
+                                <th scope="row">{{resource.ResourcesType}}</th>
+                                <td>{{resource.Description}}</td>
+                                <td>{{resource.IssuedDate}}</td>
+                                <td>{{resource.Email}}</td>
+                                <td>{{resource.Status}}</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </mat-card>
         </div>
 
-        
+
         <div class="col-6">
             <h2>Resource Allocation</h2>
-            <mat-card>
-                <div class="wrapper">
-                    <div class="tablediv">
-                        <div class="row">
-                            <div class="col-6">
-                                <mat-form-field class="example-form-field">
-                                    <mat-label>Email</mat-label>
-                                    <input matInput type="text">
-                                </mat-form-field>
-                            </div>
-                            <div class="col-6">
-                                <mat-form-field class="example-form-field" appearance="fill">
-                                    <mat-label>Type</mat-label>
-                                    <mat-select>
-                                        <mat-option value="January">Software</mat-option>
-                                        <mat-option value="February">Hardware</mat-option>
-                                    </mat-select>
-                                </mat-form-field>
-                            </div>
+            <form [formGroup]="form" #resourcesform="ngForm" (ngSubmit)="Submit(resourcesform.value)">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="input-group">
+                            <input class="form-control" placeholder="Email" name="Email" ngModel formControlName="Email"/>
                         </div>
-
-                        <div class="row">
-                            <div class="col-6">
-                                <mat-form-field class="example-form-field">
-                                    <mat-label>Resource Name</mat-label>
-                                    <input matInput type="text">
-                                </mat-form-field>
-                            </div>
-
-                            <div class="col-6">
-                                <mat-form-field class="example-form-field">
-                                    <mat-label>Description</mat-label>
-                                    <input matInput type="text">
-                                </mat-form-field>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-6">
-                                <mat-form-field class="example-form-field" appearance="fill">
-                                    <mat-label>Issued Date</mat-label>
-                                    <mat-date-range-input [rangePicker]="picker1">
-                                        <input matStartDate placeholder="Start date">
-                                        <input matEndDate placeholder="End date">
-                                    </mat-date-range-input>
-                                    <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
-                                    <mat-date-range-picker #picker1></mat-date-range-picker>
-                                </mat-form-field>
-                            </div>
-                            <div class="col-6">
-                                <mat-form-field class="example-form-field">
-                                    <mat-label>Status</mat-label>
-                                    <input matInput type="text">
-                                </mat-form-field>
-                            </div>
-                        </div>
-
-                        <button type="button" class="btn btn-primary button">Register</button>
+                    </div>
+                    <div class="col-6">
+                        <select class="form-select input-group" aria-label="Default select example" name="ResourcesType" ngModel formControlName="ResourcesType">
+                            <option selected>Resource Type</option>
+                            <option value="Software">Software</option>
+                            <option value="Hardware">Hardware</option>
+                        </select>
                     </div>
                 </div>
-            </mat-card>
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="input-group">
+                            <input class="form-control" placeholder="Resource name" name="ResourcesName" ngModel formControlName="ResourcesName"/>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="input-group">
+                            <input class="form-control" placeholder="Description" name="Description" ngModel formControlName="Description"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="input-group">
+                            <input class="form-control" placeholder="yyyy-mm-dd" name="IssuedDate" ngModel [(ngModel)]="model"
+                                ngbDatepicker #d="ngbDatepicker" formControlName="IssuedDate"/>
+                            <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-calendar-check" viewBox="0 0 16 16">
+                                    <path
+                                        d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                                    <path
+                                        d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="input-group">
+                            <input class="form-control" placeholder="Status" name="Status" ngModel formControlName="Status"/>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" style="margin-left: 5px;" class="btn btn-primary button">Register</button>
+            </form>
         </div>
     </div>
 </div>

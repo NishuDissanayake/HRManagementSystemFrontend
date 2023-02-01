@@ -46,8 +46,16 @@ export class ProjectManageComponent {
     this.ProjectService.getAllProjects().subscribe((result: Projects[]) => (this.getProjects = result))
   }
 
+  timeOut(){
+    setTimeout(() => {
+      window.location.reload()
+    }, 2500);
+  }
+
   Submit(formData: any){
     this.ProjectService.createProject(formData)
-    console.log(formData)
+    alert("Project Assigned Successfully!")
+
+    this.timeOut()
   }
 }

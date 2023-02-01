@@ -5,7 +5,6 @@ import { CustomAdapter, CustomDateParserFormatter } from 'src/app/models/custom-
 import { Leaves } from 'src/app/models/leaves';
 import { LeaveService } from 'src/app/services/leave.service';
 
-
 @Component({
   selector: 'app-leave',
   templateUrl: './leave.component.html',
@@ -17,7 +16,7 @@ export class LeaveComponent {
   leaves: Leaves[] = [];
   model?: string;
   
-  email = "ishitha@gmail.com"
+  email = localStorage.getItem('email')
 
   form = new FormGroup({
     Email: new FormControl(''),
@@ -36,7 +35,8 @@ export class LeaveComponent {
     Email: ''
   }
 
-  constructor(private LeaveService: LeaveService, private ngbCalendar: NgbCalendar, private dateAdapter: NgbDateAdapter<string>) { }
+  constructor(private LeaveService: LeaveService, private ngbCalendar: NgbCalendar,
+    private dateAdapter: NgbDateAdapter<string>) { }
 
   ngOnInit(): void {
     this.LeaveService
@@ -44,8 +44,17 @@ export class LeaveComponent {
       .subscribe((result: Leaves[]) => (this.leaves = result));
   }
 
+  timeOut(){
+    setTimeout(() => {
+      window.location.reload()
+    }, 2500);
+  }
+
   Submit(formData: any){
-    this.LeaveService.applyLeave(formData)
-    console.log(formData)
+    this.LeaveService.applyLeave(formData).subscribe((res: any) => {
+      alert(res.message)
+    })
+
+    this.timeOut()
   }
 }

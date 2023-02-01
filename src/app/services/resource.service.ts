@@ -27,11 +27,11 @@ export class ResourceService {
     return this.http.get<AllHardware[]>(`${environment.apiUrl}/${this.controller}/hardware/all`)
   }
   
-  public getSoftwareByEmail(email = ""): Observable<Software[]> {
+  public getSoftwareByEmail(email: any): Observable<Software[]> {
     return this.http.get<Software[]>(`${environment.apiUrl}/${this.controller}/software/by-email?email=${email}`)
   }
 
-  public getHardwareByEmail(email = ""): Observable<Hardware[]> {
+  public getHardwareByEmail(email: any): Observable<Hardware[]> {
     return this.http.get<Hardware[]>(`${environment.apiUrl}/${this.controller}/hardware/by-email?email=${email}`)
   }
 

@@ -97,30 +97,42 @@ export class EmployeeManageComponent {
   //#endregion
 
   empDetails: EmployeeDetails[] = []
+
   ngOnInit(){
-    this.EmployeeService.getEmp().subscribe((res) =>{
-      (res: EmployeeDetails[]) => (this.empDetails = res)
-      console.log(res)
-    })
+    
+  }
+
+  timeOut(){
+    setTimeout(() => {
+      window.location.reload()
+    }, 2500);
   }
 
   empRegister(regData: any){
     this.EmployeeService.regEmp(regData);
-    console.log(regData)
+    alert("Employee Registered Successfully!")
+
+    this.timeOut()
   }
 
   empUpdate(updData: any){
     this.EmployeeService.updEmp(updData)
-    console.log(updData)
+    alert("Employee Details Updated!")
+
+    this.timeOut()
   }
 
   bankUpdate(bankData: any){
     this.EmployeeService.updBank(bankData)
-    console.log(bankData)
+    alert("Bank Details Updated!")
+
+    this.timeOut()
   }
 
   empDelet(email: string){
     this.EmployeeService.dltEmp(email)
-    console.log(email)
+    alert("Resignation Successfull!")
+
+    this.timeOut()
   }
 }

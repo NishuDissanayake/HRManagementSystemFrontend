@@ -34,7 +34,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CustomAdapter, CustomDateParserFormatter } from './models/custom-date-format';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +68,7 @@ import { CustomAdapter, CustomDateParserFormatter } from './models/custom-date-f
     MatSelectModule,
     FormsModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [{ provide: NgbDateAdapter, useClass: CustomAdapter },
   { provide: NgbDateParserFormatter, useClass: CustomDateParserFormatter }],

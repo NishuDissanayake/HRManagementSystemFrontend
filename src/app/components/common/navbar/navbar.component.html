@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary navbar bg-light" data-bs-theme="light">
     <div class="container-fluid">
-        <a class="navbar-brand" routerLink="">SQNC HRMS</a>
+        <a class="navbar-brand" routerLink=""><img src="../../../../assets/icons/SQNC-logo.png" width="45" height="45" alt="logo"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -11,10 +11,10 @@
                     <a routerLink="" class="nav-link active" aria-current="page">Leaves</a>
                 </li>
                 <li class="nav-item">
-                    <a routerLink="/profile" class="nav-link active" aria-current="page">Profile</a>
+                    <a routerLink="/profile" *ngIf="!isAdmin" class="nav-link active" aria-current="page">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a routerLink="/admin" class="nav-link active" aria-current="page">Dashboard</a>
+                    <a routerLink="/admin" *ngIf="isAdmin" class="nav-link active" aria-current="page">Dashboard</a>
                 </li>
                 <li class="nav-item">
                     <a routerLink="/news" class="nav-link active" aria-current="page">News</a>
@@ -23,7 +23,7 @@
 
             <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item justify-content-end">
-                    <a routerLink="/login" class="nav-link active" aria-current="page">Login</a>
+                    <a (click)="logOut()" class="nav-link active" style="cursor: pointer;" aria-current="page">Log out</a>
                 </li>
             </ul>
         </div>

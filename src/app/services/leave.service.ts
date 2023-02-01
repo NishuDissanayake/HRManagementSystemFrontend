@@ -12,7 +12,7 @@ export class LeaveService {
   private controller = "lwfh";
   constructor(private http: HttpClient) { };
 
-  public getLeavesByEmail(email = ""): Observable<Leaves[]> {
+  public getLeavesByEmail(email: any): Observable<Leaves[]> {
     return this.http.get<Leaves[]>(`${environment.apiUrl}/${this.controller}/list-by-employee?Email=${email}`)
   }
 
@@ -26,9 +26,6 @@ export class LeaveService {
 
   public applyLeave(leaveObj: any) {
     return this.http.post(`${environment.apiUrl}/${this.controller}/request`, leaveObj)
-      .subscribe((res) => {
-        console.log(res)
-      })
   }
 
   public approve(id: string) {

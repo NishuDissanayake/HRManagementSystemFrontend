@@ -35,7 +35,7 @@
     
                             <div class="col-3">
                                 <select class="form-select input-group" name="Month" ngModel formControlName="Month">
-                                    <option selected>Month</option>
+                                    <option selected value="Month">Month</option>
                                     <option value="January">January</option>
                                     <option value="February">February</option>
                                     <option value="March">March</option>
@@ -53,7 +53,7 @@
     
                             <div class="col-3">
                                 <select class="form-select input-group" name="ReqType" ngModel formControlName="ReqType">
-                                    <option selected>Resource Type</option>
+                                    <option selected value="Leave Type">Leave Type</option>
                                     <option value="Leave">Leave</option>
                                     <option value="WFH">WFH</option>
                                 </select>
@@ -62,7 +62,7 @@
                             <div class="col-3">
                                 <div class="input-group">
                                     <input class="form-control" name="Reason" ngModel formControlName="Reason" placeholder="Reason" />
-                                    <input type="hidden" [value]="email" name="Email" ngModel formControlName="Email"/>
+                                    <input [(ngModel)]="email" [hidden]="true" name="Email" ngModel formControlName="Email" />
                                 </div>
                             </div>
                         </div>

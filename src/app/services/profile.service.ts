@@ -13,11 +13,11 @@ export class ProfileService {
   private controller = "projects"
   constructor(private http: HttpClient) { }
 
-  public getEmpByEmail(email = ""): Observable<Employee[]> {
+  public getEmpByEmail(email: any): Observable<Employee[]> {
     return this.http.get<Employee[]>(`${environment.apiUrl}/employee/by-email?email=${email}`)
   }
 
-  public getProjectsByEmail(email = ""): Observable<Project[]> {
+  public getProjectsByEmail(email: any): Observable<Project[]> {
     return this.http.get<Project[]>(`${environment.apiUrl}/${this.controller}/by-email?email=${email}`)
   }
 }

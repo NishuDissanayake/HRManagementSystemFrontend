@@ -12,12 +12,12 @@ export class EmployeeService {
   private controller = "employee"
   constructor(private http: HttpClient) { }
 
-  public getEmpByEmail(email = ""): Observable<Employee[]> {
+  public getEmpByEmail(email: any): Observable<Employee[]> {
     return this.http.get<Employee[]>(`${environment.apiUrl}/${this.controller}/by-email?Email=${email}`)
   }
 
-  public getEmp(email = ""): Observable<EmployeeDetails[]> {
-    return this.http.get<EmployeeDetails[]>(`${environment.apiUrl}/${this.controller}/by-email?Email=${email}`)
+  public getEmp(email: any) {
+    return this.http.get(`https://hrms-web.herokuapp.com/employee/by-email?Email=${email}`)
   }
 
   public regEmp(empRegObj: any) {

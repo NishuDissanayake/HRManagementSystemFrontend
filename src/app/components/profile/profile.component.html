@@ -9,7 +9,6 @@
                     <table class="table">
                         <thead class="theadbak">
                             <tr>
-                                <th scope="col">EID</th>
                                 <th scope="col">First Name</th>
                                 <th scope="col">Last Name</th>
                                 <th scope="col">Phone No</th>
@@ -19,14 +18,13 @@
                             </tr>
                         </thead>
                         <tbody class="table-group-divider">
-                            <tr *ngFor="let employee of employees">
-                                <th scope="row">{{employee.id}}</th>
-                                <td>{{employee.FirstName}}</td>
-                                <td>{{employee.LastName}}</td>
-                                <td>{{employee.PhoneNumber}}</td>
-                                <td>{{employee.Address}}</td>
-                                <td>{{employee.Designation}}</td>
-                                <td>{{employee.EmpStartDate}}</td>
+                            <tr>
+                                <td>{{FirstName}}</td>
+                                <td>{{LastName}}</td>
+                                <td>{{PhoneNo}}</td>
+                                <td>{{Address}}</td>
+                                <td>{{Designation}}</td>
+                                <td>{{StartDate}}</td>
                             </tr>
                             
                         </tbody>
@@ -123,31 +121,30 @@
     <div class="row rowheight">
         <div class="col-12">
             <mat-card>
-                <h3 class="card-title cardtitle">Employee details <span><img class="title-icon" src="../../../assets/icons/id-card.png" /></span></h3>
+                <h3 class="card-title cardtitle">Employee Salary <span><img class="title-icon" src="../../../assets/icons/salary.png" /></span></h3>
                 <div class="tablediv">
                     <table class="table">
                         <thead class="theadbak">
                             <tr>
-                                <th scope="col">Email</th>
-                                <th scope="col">First Name</th>
-                                <th scope="col">Last Name</th>
-                                <th scope="col">Phone No</th>
-                                <th scope="col">Address</th>
-                                <th scope="col">Designation</th>
-                                <th scope="col">Employeement start date</th>
+                                <th scope="col">Month</th>
+                                <th scope="col">Basic Salary</th>
+                                <th scope="col">Deductions</th>
+                                <th scope="col">Reson(Deduct)</th>
+                                <th scope="col">Addition</th>
+                                <th scope="col">Reason(Addition)</th>
+                                <th scope="col">Net Salary</th>
                             </tr>
                         </thead>
                         <tbody class="table-group-divider">
-                            <tr *ngFor="let employee of employees">
-                                <th scope="row">{{employee.id}}</th>
-                                <td>{{employee.FirstName}}</td>
-                                <td>{{employee.LastName}}</td>
-                                <td>{{employee.PhoneNumber}}</td>
-                                <td>{{employee.Address}}</td>
-                                <td>{{employee.Designation}}</td>
-                                <td>{{employee.EmpStartDate}}</td>
+                            <tr *ngFor="let employee of empSal">
+                                <td>{{employee.Month}}</td>
+                                <td>{{basicSal}}</td>
+                                <td>{{employee.DeductAmount}}</td>
+                                <td>{{employee.DeductReason}}</td>
+                                <td>{{employee.AddAmount}}</td>
+                                <td>{{employee.AddReason}}</td>
+                                <td>{{employee.NetSalary}}</td>
                             </tr>
-                            
                         </tbody>
                     </table>
                 </div>

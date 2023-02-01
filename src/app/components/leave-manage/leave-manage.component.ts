@@ -23,13 +23,23 @@ export class LeaveManageComponent {
     })
   }
 
-  leaveApprove(id: string){
-    this.LeaveService.approve(id)
-    console.log(id)
+  timeOut(){
+    setTimeout(() => {
+      window.location.reload()
+    }, 2500);
   }
 
-  leaveReject(id: string){
+  leaveApprove(id: any){
+    this.LeaveService.approve(id)
+    alert("Leave Request Approved!")
+
+    this.timeOut()
+  }
+
+  leaveReject(id: any){
     this.LeaveService.reject(id)
-    console.log(id)
+    alert("Leave Request Rejected!")
+
+    this.timeOut()
   }
 }

@@ -10,7 +10,7 @@ import { PayrollComponent } from './components/payroll/payroll.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ProjectManageComponent } from './components/project-manage/project-manage.component';
 import { ResourceManageComponent } from './components/resource-manage/resource-manage.component';
-import { ChatScreenComponent } from './components/chat-screen/chat-screen.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 const routes: Routes = [
   {path:'', component: LeaveComponent},
@@ -23,7 +23,7 @@ const routes: Routes = [
   {path:'payroll', component: PayrollComponent},
   {path:'projectmanage', component: ProjectManageComponent},
   {path:'resourcemanage', component: ResourceManageComponent},
-  {path:'chat', component: ChatScreenComponent},
+  {path:'chat', component: ChatComponent},
 
 ];
 

@@ -32,8 +32,7 @@ import { ResourceManageComponent } from './components/resource-manage/resource-m
 import { NgbDateAdapter, NgbDateParserFormatter, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CustomAdapter, CustomDateParserFormatter } from './models/custom-date-format';
-import { ChatScreenComponent } from './components/chat-screen/chat-screen.component';
-import { WebSocketsService } from './services/web-sockets.service';
+import { ChatComponent } from './components/chat/chat.component';
 
 
 @NgModule({
@@ -52,7 +51,7 @@ import { WebSocketsService } from './services/web-sockets.service';
     PayrollComponent,
     ProjectManageComponent,
     ResourceManageComponent,
-    ChatScreenComponent
+    ChatComponent
   ],
   imports: [
     BrowserModule,
@@ -71,9 +70,10 @@ import { WebSocketsService } from './services/web-sockets.service';
     MatSelectModule,
     FormsModule,
     NgbModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
-  providers: [ WebSocketsService ], 
+  providers: [{ provide: NgbDateAdapter, useClass: CustomAdapter },
+  { provide: NgbDateParserFormatter, useClass: CustomDateParserFormatter }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

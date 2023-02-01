@@ -63,6 +63,7 @@ export class Registration {
     Password = ""
 }
 
+
 export class EmployeeDetails{
     BankDetails?: BankDetails[];
     Email = "";

@@ -2,7 +2,9 @@ import { Component, Input } from '@angular/core';
 import { forkJoin, map } from 'rxjs';
 import { Employee, EmployeeDetails } from 'src/app/models/employee';
 import { Project } from 'src/app/models/project';
+import { Salary } from 'src/app/models/salary';
 import { EmployeeService } from 'src/app/services/employee.service';
+import { PayrollService } from 'src/app/services/payroll.service';
 import { ProfileService } from 'src/app/services/profile.service';
 
 @Component({
@@ -11,14 +13,44 @@ import { ProfileService } from 'src/app/services/profile.service';
   styleUrls: ['./payroll.component.css']
 })
 export class PayrollComponent {
-  
-  constructor(private EmployeeService: EmployeeService, private ProjectService: ProfileService) {}
 
-  empDetails: EmployeeDetails[] = []
+  constructor(private EmployeeService: EmployeeService,
+    private ProjectService: ProfileService,
+    private Payroll: PayrollService) { }
+
+  empDetails: Salary[] = []
   projects: Project[] = []
-  
+  basicSal = ""
+  email = ""
+
+
   ngOnInit() {
-    // this.ProjectService.getProjectsByEmail("ishitha@gmail.com").subscribe((result: Project[]) => (this.projects = result))
-    this.EmployeeService.getEmp("disanayakenc@gmail.com").subscribe((result: EmployeeDetails[]) => (this.empDetails = result))
+
+  }
+
+  formData = {
+    Month: "",
+    PaidDate: "",
+    Email: "",
+    AdditionReason: "",
+    AddAmount: 0,
+    DeductionReason: "",
+    DeductAmount: ""
+  }
+
+  Search(email: string) {
+    this.EmployeeService.getEmp(email)
+      .subscribe(
+        (res: any) => {
+          console.log(res.employee.SalaryForMonth)
+          this.empDetails = res.employee.SalaryForMonth
+          this.basicSal = res.employee.BasicSalary
+        }
+      )
+  }
+
+  Submit(formData: any) {
+    this.Payroll.addSalary(formData)
+    console.log(formData)
   }
 }

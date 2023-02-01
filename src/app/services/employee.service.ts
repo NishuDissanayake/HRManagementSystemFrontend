@@ -16,8 +16,8 @@ export class EmployeeService {
     return this.http.get<Employee[]>(`${environment.apiUrl}/${this.controller}/by-email?Email=${email}`)
   }
 
-  public getEmp(email = ""): Observable<EmployeeDetails[]> {
-    return this.http.get<EmployeeDetails[]>(`${environment.apiUrl}/${this.controller}/by-email?Email=${email}`)
+  public getEmp(email = "") {
+    return this.http.get(`https://hrms-web.herokuapp.com/employee/by-email?Email=${email}`)
   }
 
   public regEmp(empRegObj: any) {

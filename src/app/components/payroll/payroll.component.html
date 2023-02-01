@@ -4,12 +4,11 @@
     <div class="row">
         <div class="col-3">
             <div class="mb-3">
-                <input type="email" class="form-control example-form-field" id="exampleFormControlInput1"
-                    placeholder="name@example.com" />
+                <input class="form-control" type="email" name="Email" placeholder="Email" [(ngModel)]="email"/>
             </div>
         </div>
         <div class="col-9">
-            <button type="button" class="btn btn-primary button">Search</button>
+            <button type="button" (click)="Search(email)" class="btn btn-primary button">Search</button>
         </div>
     </div>
 
@@ -22,21 +21,21 @@
                             <th scope="col">Month</th>
                             <th scope="col">Basic Salary</th>
                             <th scope="col">Deductions</th>
-                            <th scope="col">Reson(Deduck)</th>
+                            <th scope="col">Reson(Deduct)</th>
                             <th scope="col">Addition</th>
-                            <th scope="col">Reson(Addition)</th>
+                            <th scope="col">Reason(Addition)</th>
                             <th scope="col">Net Salary</th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
                         <tr *ngFor="let employee of empDetails">
-                            <td *ngFor="let month of employee.SalaryForMonth">{{month.Month}}</td>
-                            <td>{{employee.BasicSalary}}</td>
-                            <td>3 months</td>
-                            <td>11/11/2022</td>
-                            <td>11/01/2023</td>
-                            <td>On-going</td>
-                            <td>On-going</td>
+                            <td>{{employee.Month}}</td>
+                            <td>{{basicSal}}</td>
+                            <td>{{employee.DeductAmount}}</td>
+                            <td>{{employee.DeductReason}}</td>
+                            <td>{{employee.AddAmount}}</td>
+                            <td>{{employee.AddReason}}</td>
+                            <td>{{employee.NetSalary}}</td>
                         </tr>
                     </tbody>
                 </table>

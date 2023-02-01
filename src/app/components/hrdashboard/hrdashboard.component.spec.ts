@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { NavbarComponent } from '../common/navbar/navbar.component';
+
 import { HrdashboardComponent } from './hrdashboard.component';
-import { MatCardModule } from '@angular/material/card';
 
 describe('HrdashboardComponent', () => {
   let component: HrdashboardComponent;
@@ -9,8 +8,7 @@ describe('HrdashboardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HrdashboardComponent, NavbarComponent ],
-      imports: [ MatCardModule]
+      declarations: [ HrdashboardComponent ]
     })
     .compileComponents();
 

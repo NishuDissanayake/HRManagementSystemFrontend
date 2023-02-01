@@ -1,9 +1,10 @@
 export class Salary{
-    AdditionAmmount?: number;
+    AddAmount?: number;
     AddReason = "";
-    DiductionAmmount?: number;
-    DiductReason = "";
+    DeductAmount?: number;
+    DeductReason = "";
     Month = "";
     PaidDate = "";
-    NetSalary?: number
+    NetSalary?: number;
+    BasicSalary?: number
 }

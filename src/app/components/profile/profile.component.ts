@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { forkJoin, map } from 'rxjs';
-import { Employee, Hardware, Software, Resource } from 'src/app/models/employee';
+import { Employee, Hardware, Software, Resource, EmployeeDetails } from 'src/app/models/employee';
 import { Project } from 'src/app/models/project';
+import { Salary } from 'src/app/models/salary';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { ProfileService } from 'src/app/services/profile.service';
 import { ResourceService } from 'src/app/services/resource.service';
@@ -19,19 +20,28 @@ export class ProfileComponent {
     private ResourceService: ResourceService) { }
 
   employees: Employee[] = []
+  employeeDetails: EmployeeDetails[] = []
   softwares: Software[] = []
   hardwares: Hardware[] = []
   projects: Project[] = []
   resources: Resource[] = []
+  empSal: Salary[] = []
+  basicSal = ""
 
   email = "ishitha@gmail.com"
 
   ngOnInit() {
-    const employee = this.ProfileService.getEmpByEmail(this.email).pipe(map((result: Employee[]) => (this.employees = result)));
     const project = this.ProfileService.getProjectsByEmail(this.email).pipe(map((result: Project[]) => (this.projects = result)));
     const software = this.ResourceService.getSoftwareByEmail(this.email).pipe(map((result: Software[]) => (this.softwares = result)));
     const hardware = this.ResourceService.getHardwareByEmail(this.email).pipe(map((result: Hardware[]) => (this.hardwares = result)));
+    const salary = this.EmployeeService.getEmp(this.email).pipe(map((res: any) => {
+      this.empSal = res.employee.SalaryForMonth
+      this.basicSal = res.employee.BasicSalary
+    }));
+    const employee = this.EmployeeService.getEmp(this.email).pipe(map((res: any) => {
+      this.employeeDetails = res.employee
+    }));
 
-    forkJoin([project, software, hardware]).subscribe(() => { });
+    forkJoin([project, software, hardware, salary]).subscribe(() => { });
   }
 }
